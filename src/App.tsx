@@ -17,6 +17,8 @@ import ScholarshipDetail from './pages/ScholarshipDetail';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import StudentDashboard from './pages/StudentDashboard';
+import SchoolDashboard from './pages/SchoolDashboard';
+import AdminDashboard from './pages/AdminDashboard';
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -48,6 +50,26 @@ const App = () => {
                   element={
                     <ProtectedRoute allowedRoles={['student']}>
                       <StudentDashboard />
+                    </ProtectedRoute>
+                  } 
+                />
+                
+                {/* Protected School Routes */}
+                <Route 
+                  path="/school" 
+                  element={
+                    <ProtectedRoute allowedRoles={['school']}>
+                      <SchoolDashboard />
+                    </ProtectedRoute>
+                  } 
+                />
+                
+                {/* Protected Admin Routes */}
+                <Route 
+                  path="/admin" 
+                  element={
+                    <ProtectedRoute allowedRoles={['admin']}>
+                      <AdminDashboard />
                     </ProtectedRoute>
                   } 
                 />
